@@ -16,8 +16,10 @@ jobs:
     - name: autogen
       run: ./autogen.sh
     - name: Install dependencies
-      run: sudo add-apt-repository ppa:bitcoin/bitcoin; sudo apt-get update; sudo apt-get install libdb4.8-dev libdb4.8++-dev
+      run: sudo add-apt-repository ppa:bitcoin/bitcoin; sudo apt-get update; sudo apt-get install libdb4.8-dev libdb4.8++-dev libboost-all-dev
     - name: Configure project
       run: ./configure
     - name: Run make
       run: echo "Proc:" $(nproc); make -j$(nproc)
+    - name: Test run github actions
+      run: ./github/compile.sh
