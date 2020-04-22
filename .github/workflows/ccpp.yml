@@ -16,7 +16,7 @@ jobs:
     - name: autogen
       run: ./autogen.sh
     - name: Install dependencies
-      run: add-apt-repository ppa:bitcoin/bitcoin; apt-get update; apt-get install libdb4.8-dev libdb4.8++-dev
+      run: sudo add-apt-repository ppa:bitcoin/bitcoin; sudo apt-get update; sudo apt-get install libdb4.8-dev libdb4.8++-dev
     - name: Configure project
       run: ./configure
     - name: Run make
