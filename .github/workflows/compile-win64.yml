@@ -13,9 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Install deps
+    - name: Install sys deps
       run: bash ./.github/deps.sh
     - name: Install BDB
       run: bash ./.github/installbdb.sh
-    - name: Autogen & Configure
+    - name: Build depends
       run: bash ./.github/compile-win64.sh
+    - name: Autogen & Configure
+      run: ./autogen.sh && CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+    - name: Run make
+      run: make -j$(nproc)
