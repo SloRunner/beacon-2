@@ -18,6 +18,4 @@ jobs:
     - name: Install BDB
       run: bash ./.github/installbdb.sh
     - name: Autogen & Configure
-      run: ./autogen.sh; ./configure --without-gui
-    - name: Make
-      run: make -j$(nproc)
+      run: bash ./.github/compile.sh
