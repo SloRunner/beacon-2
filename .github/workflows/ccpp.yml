@@ -16,8 +16,4 @@ jobs:
     - name: autogen
       run: ./autogen.sh
     - name: Build Deps
-      run: cd depends; make
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
+      run: cd depends; make HOST=x86_64-pc-linux-gnu -j$(nproc)
