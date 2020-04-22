@@ -7,11 +7,11 @@ on:
     branches: [ master ]
 
 jobs:
-  build-Win64:
+  Win64-Build:
 
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
     - name: Test run github actions
-      run: $(which bash) ./.github/compile-win64.sh
+      run: ./autogen.sh; ./configure --without-gui --disable-wallet
