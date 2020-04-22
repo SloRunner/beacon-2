@@ -13,11 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: autogen
-      run: ./autogen.sh
-    - name: Install dependencies
-      run: sudo add-apt-repository ppa:bitcoin/bitcoin; sudo apt-get update; sudo apt-get install libdb4.8-dev libdb4.8++-dev libboost-all-dev
-    - name: Configure project
-      run: ./configure
     - name: Test run github actions
       run: ./github/compile-win64.sh
